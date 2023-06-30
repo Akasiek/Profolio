@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .default-link {
+    @apply underline opacity-70 hover:opacity-100 hover:text-primary-dark transition-opacity duration-200
+  }
+}
