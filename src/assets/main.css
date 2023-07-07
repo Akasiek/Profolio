@@ -8,4 +8,7 @@
   .default-link {
     @apply underline opacity-70 hover:opacity-100 hover:text-primary-dark transition-opacity duration-200
   }
+  .default-link-light {
+    @apply underline opacity-70 hover:opacity-100 hover:text-primary-light transition-opacity duration-200
+  }
 }

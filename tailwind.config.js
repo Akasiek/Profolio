@@ -7,6 +7,7 @@ module.exports = {
         'primary-dark': '#201E1F',
         'secondary-dark': '#333333',
         'primary-light': '#F5F5F5',
+        'secondary-light': '#DDDDDD',
         'primary-gray': '#525053'
       },
       fontFamily: {
@@ -14,5 +15,5 @@ module.exports = {
       }
     }
   },
-  plugins: []
+  plugins: [require('@tailwindcss/typography')]
 };

@@ -13,7 +13,7 @@ const links = [
     <div class="max-w-3xl">
       <h1 class="text-4xl font-bold mb-4 text-primary-dark uppercase">Something about me</h1>
       <div class="flex flex-col gap-5 text-primary-gray text-lg">
-        <p>Like I said my name's Kamil, I'm 21 years old. I'm a <b>Junior Full Stack Developer</b> located in Rzeszów, Poland.</p>
+        <p>Like I said my name's Kamil, I'm 21 years old. I'm a <b>Junior Full Stuck Developer</b> located in Rzeszów, Poland.</p>
         <p>I started my coding adventure ️in Middle School. First it was <i>Scratch, C++, HTML</i> and then it just went on...</p>
         <p>
           Music is a big part of me. I worship Rock music and in particular the genres of <b>Progressive Rock</b> and <b>Post-Rock</b>.

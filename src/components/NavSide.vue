@@ -11,6 +11,8 @@ const links = [
   { label: 'Blog', url: '#blog' },
   { label: 'Contact', url: '#contact' }
 ];
+
+// TODO: Fix clicking function. Make it stop animation and play the new one.
 </script>
 
 <template>

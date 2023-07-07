@@ -5,16 +5,17 @@ import { useSlideStore } from '@/stores/slide';
 import WelcomeSlide from '@/components/slides/WelcomeSlide.vue';
 import AboutSlide from '@/components/slides/AboutSlide.vue';
 import TechSlide from '@/components/slides/TechSlide.vue';
+import type { VueFlicking } from '@egjs/vue3-flicking/declaration/types';
 
 const slideStore = useSlideStore();
 
-const flicking = ref<Flicking | null>(null);
+const flicking = ref<VueFlicking | undefined>();
 
 const slides = [WelcomeSlide, AboutSlide, TechSlide, WelcomeSlide, WelcomeSlide, WelcomeSlide];
 
-const moveOnWheel = (e) => {
-  if (!flicking.value?.animating) {
-    const direction = e.deltaY > 0 ? 'next' : 'prev';
+const moveOnWheel = (event: WheelEvent) => {
+  if (flicking.value && !flicking.value?.animating) {
+    const direction = event.deltaY > 0 ? 'next' : 'prev';
     flicking.value[direction]();
   }
 };
