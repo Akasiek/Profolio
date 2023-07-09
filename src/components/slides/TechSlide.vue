@@ -1,41 +1,42 @@
 <script setup lang="ts">
 import type { Component } from 'vue';
 import { ref } from 'vue';
-import { AstroCard, DjangoCard, ReactCard, TailwindCard, TypescriptCard, VueCard, YiiCard } from '@/components/techInfoCards/index.ts';
+import * as Card from '@/components/techInfoCards/';
+import { Motion, Presence } from 'motion/vue';
 
 const technologies: { name: string; logoPath: string; cardComponent?: Component; span?: '2x' | '2y' }[] = [
   {
     name: 'Yii',
     logoPath: '/images/technologies/yii.svg',
     span: '2x',
-    cardComponent: YiiCard
+    cardComponent: Card.YiiCard
   },
   {
     name: 'React',
     logoPath: '/images/technologies/react.svg',
-    cardComponent: ReactCard
+    cardComponent: Card.ReactCard
   },
-  { name: 'Astro', logoPath: '/images/technologies/astro.svg', cardComponent: AstroCard },
+  { name: 'Astro', logoPath: '/images/technologies/astro.svg', cardComponent: Card.AstroCard },
   {
     name: 'Vue',
     logoPath: '/images/technologies/vue.svg',
     span: '2y',
-    cardComponent: VueCard
+    cardComponent: Card.VueCard
   },
   {
     name: 'Tailwind',
     logoPath: '/images/technologies/tailwind.svg',
-    cardComponent: TailwindCard
+    cardComponent: Card.TailwindCard
   },
   {
     name: 'Django',
     logoPath: '/images/technologies/django.svg',
-    cardComponent: DjangoCard
+    cardComponent: Card.DjangoCard
   },
   {
     name: 'Typescript',
     logoPath: '/images/technologies/typescript.svg',
-    cardComponent: TypescriptCard
+    cardComponent: Card.TypescriptCard
   }
 ];
 
@@ -53,7 +54,7 @@ const isModalOpened = ref<boolean>(false);
       <div
         v-for="(tech, index) in technologies"
         :key="tech.name"
-        class="bg-primary-dark flex items-center justify-center px-5 py-8 group cursor-pointer shadow-[0_0_0_#666] hover:shadow-[10px_10px_0_#666] transition-all duration-150"
+        class="bg-secondary-dark flex items-center justify-center px-5 py-8 group cursor-pointer shadow-[0_0_0_#201E1F] hover:shadow-[10px_10px_0_#201E1F] transition-all duration-150"
         :class="tech?.span === '2x' ? 'col-span-2' : '' || tech?.span === '2y' ? 'row-span-2' : ''"
         @click="
           () => {
@@ -68,16 +69,25 @@ const isModalOpened = ref<boolean>(false);
           <img :src="tech.logoPath" class="w-12 saturate-0 group-hover:saturate-100 transition-all" :alt="tech.name + ' logo'" />
         </div>
       </div>
-      <div id="tech-info-modal" class="absolute inset-0 bg-secondary-dark" v-if="isModalOpened && idInfoCardTech !== null">
-        <article class="prose prose-invert py-6 px-8 text-justify max-w-3xl prose-hr:my-4 prose-hr:border-t-primary-gray prose-p:my-4 prose-h1:mb-1 prose-h1:text-3xl">
-          <component :is="technologies[idInfoCardTech]?.cardComponent">
-            <img :src="technologies[idInfoCardTech].logoPath" :alt="technologies[idInfoCardTech].name + ' logo'" class="h-12 m-0" />
-          </component>
-        </article>
-        <button aria-description="Close modal window" id="close-modal" @click="isModalOpened = false" class="absolute top-4 right-4 cursor-pointer h-10">
-          <img class="h-full w-full" src="/icons/close-white.svg" alt="Close icon" />
-        </button>
-      </div>
+      <Presence>
+        <Motion
+          id="tech-info-modal"
+          :initial="{ opacity: 0, scale: 0.4 }"
+          :animate="{ opacity: 1, scale: 1 }"
+          :exit="{ opacity: 0, scale: 0.6 }"
+          class="absolute inset-0 bg-primary-dark"
+          v-if="isModalOpened && idInfoCardTech !== null"
+        >
+          <article class="prose prose-invert py-6 px-8 text-justify max-w-3xl prose-hr:my-4 prose-hr:border-t-primary-gray prose-p:my-4 prose-h1:mb-1 prose-h1:text-3xl">
+            <component :is="technologies[idInfoCardTech]?.cardComponent">
+              <img :src="technologies[idInfoCardTech].logoPath" :alt="technologies[idInfoCardTech].name + ' logo'" class="h-12 m-0" />
+            </component>
+          </article>
+          <button aria-description="Close modal window" id="close-modal" @click="isModalOpened = false" class="absolute top-4 right-4 cursor-pointer h-10">
+            <img class="h-full w-full" src="/icons/close-white.svg" alt="Close icon" />
+          </button>
+        </Motion>
+      </Presence>
     </div>
   </section>
 </template>

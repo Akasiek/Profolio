@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@egjs/vue3-flicking": "^4.10.7",
+    "@supabase/supabase-js": "^2.26.0",
     "motion": "^10.16.2",
     "pinia": "^2.1.4",
     "vue": "^3.3.4",

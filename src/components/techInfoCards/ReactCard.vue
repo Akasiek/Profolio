@@ -10,10 +10,9 @@
     <hr />
     <p>
       I've made couple of projects in React and I found it fascinating. The reactivity was mind blowing! But the lack of official ecosystem cause many problems. There are many
-      helper libraries but they do things differently and it makes coding confusing. Next.js is a solution to those problems but it has its own problems. The lack of consistency is
-      a big problem.
+      helper libraries but they do things differently and it makes coding confusing. Next.js is a solution to those problems but it has its own problems.
     </p>
-    <p>I'll move to Vue.js as soon as possible. I think it's a better solution for me. I'll keep React in my toolbox though. I'm still using it at work.</p>
+    <p>I'll move to Vue.js as soon as possible. I think it's a better solution for me.</p>
     <a href="/projects?tech=react" class="default-link-light">My projects that use React.</a>
   </article>
 </template>

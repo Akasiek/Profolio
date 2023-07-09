@@ -2,16 +2,14 @@
 import { ref } from 'vue';
 import Flicking from '@egjs/vue3-flicking';
 import { useSlideStore } from '@/stores/slide';
-import WelcomeSlide from '@/components/slides/WelcomeSlide.vue';
-import AboutSlide from '@/components/slides/AboutSlide.vue';
-import TechSlide from '@/components/slides/TechSlide.vue';
 import type { VueFlicking } from '@egjs/vue3-flicking/declaration/types';
+import * as Slide from '@/components/slides/';
 
 const slideStore = useSlideStore();
 
 const flicking = ref<VueFlicking | undefined>();
 
-const slides = [WelcomeSlide, AboutSlide, TechSlide, WelcomeSlide, WelcomeSlide, WelcomeSlide];
+const slides = [Slide.WelcomeSlide, Slide.AboutSlide, Slide.TechSlide, Slide.ProjectsSlide, Slide.WelcomeSlide, Slide.WelcomeSlide];
 
 const moveOnWheel = (event: WheelEvent) => {
   if (flicking.value && !flicking.value?.animating) {
@@ -33,7 +31,7 @@ slideStore.$subscribe(() => {
 
 <template>
   <Flicking
-    :options="{ align: 'prev', circular: true, horizontal: false, duration: 800, moveType: ['strict', { count: 1 }] }"
+    :options="{ align: 'prev', circular: true, horizontal: false, duration: 800, moveType: ['strict', { count: 1 }], panelsPerView: 1, inputType: ['pointer'] }"
     @move-end="slideStore.setSlide(flicking?.getStatus().position.panel ?? 0)"
     class="h-screen"
     @wheel="moveOnWheel"
