@@ -5,6 +5,9 @@
 @tailwind utilities;
 
 @layer components {
+  .cool-shadow {
+    @apply shadow-[0_0_0_#201E1F] hover:shadow-[10px_10px_0_#201E1F] transition-shadow
+  }
   .default-link {
     @apply underline opacity-70 hover:opacity-100 hover:text-primary-dark transition-opacity duration-200
   }
@@ -12,6 +15,6 @@
     @apply underline opacity-70 hover:opacity-100 hover:text-primary-light transition-opacity duration-200
   }
   .btn-link {
-    @apply w-fit border-2 px-5 py-7 border-primary-dark bg-primary-light text-primary-dark shadow-[0_0_0_#201E1F] hover:shadow-[10px_10px_0_#201E1F] transition-shadow
+    @apply w-fit border-2 px-5 py-7 border-primary-dark bg-primary-light text-primary-dark cool-shadow
   }
 }

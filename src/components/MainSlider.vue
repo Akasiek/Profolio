@@ -9,7 +9,7 @@ const slideStore = useSlideStore();
 
 const flicking = ref<VueFlicking | undefined>();
 
-const slides = [Slide.WelcomeSlide, Slide.AboutSlide, Slide.TechSlide, Slide.ProjectsSlide, Slide.WelcomeSlide, Slide.WelcomeSlide];
+const slides = [Slide.WelcomeSlide, Slide.AboutSlide, Slide.TechSlide, Slide.ProjectsSlide, Slide.BlogSlide, Slide.WelcomeSlide];
 
 const moveOnWheel = (event: WheelEvent) => {
   if (flicking.value && !flicking.value?.animating) {
