@@ -4,7 +4,7 @@ import { ref } from 'vue';
 import * as Card from '@/components/techInfoCards/';
 import { Motion, Presence } from 'motion/vue';
 
-const technologies: { name: string; logoPath: string; cardComponent?: Component; span?: '2x' | '2y' }[] = [
+const technologies: { name: string; logoPath: string; secondaryLogoPath?: string; cardComponent?: Component; span?: '2x' | '2y' }[] = [
   {
     name: 'Yii',
     logoPath: '/images/technologies/yii.svg',
@@ -16,7 +16,7 @@ const technologies: { name: string; logoPath: string; cardComponent?: Component;
     logoPath: '/images/technologies/react.svg',
     cardComponent: Card.ReactCard
   },
-  { name: 'Astro', logoPath: '/images/technologies/astro.svg', cardComponent: Card.AstroCard },
+  { name: 'Astro', logoPath: '/images/technologies/astro-dark.svg', secondaryLogoPath: '/images/technologies/astro.svg', cardComponent: Card.AstroCard },
   {
     name: 'Vue',
     logoPath: '/images/technologies/vue.svg',
@@ -54,7 +54,7 @@ const isModalOpened = ref<boolean>(false);
       <div
         v-for="(tech, index) in technologies"
         :key="tech.name"
-        class="bg-secondary-dark flex items-center justify-center px-5 py-8 group cursor-pointer shadow-[0_0_0_#201E1F] hover:shadow-[10px_10px_0_#201E1F] transition-all duration-150"
+        class="flex items-center justify-center px-4 py-7 border-4 border-primary-dark group cursor-pointer shadow-[0_0_0_#201E1F] hover:shadow-[10px_10px_0_#201E1F] transition-all duration-150"
         :class="tech?.span === '2x' ? 'col-span-2' : '' || tech?.span === '2y' ? 'row-span-2' : ''"
         @click="
           () => {
@@ -64,9 +64,9 @@ const isModalOpened = ref<boolean>(false);
         "
         :aria-description="'Click to open modal with more info about ' + tech.name"
       >
-        <div class="my-auto flex items-center gap-6 text-white font-bold text-lg">
-          <p class="">{{ tech.name }}</p>
-          <img :src="tech.logoPath" class="w-12 saturate-0 group-hover:saturate-100 transition-all" :alt="tech.name + ' logo'" />
+        <div class="my-auto flex items-center gap-6 text-primary-dark font-bold text-lg">
+          <p class="text-lg">{{ tech.name }}</p>
+          <img :src="tech.logoPath" class="h-12 transition-all" :alt="tech.name + ' logo'" />
         </div>
       </div>
       <Presence>
@@ -75,12 +75,16 @@ const isModalOpened = ref<boolean>(false);
           :initial="{ opacity: 0, scale: 0.4 }"
           :animate="{ opacity: 1, scale: 1 }"
           :exit="{ opacity: 0, scale: 0.6 }"
-          class="absolute inset-0 bg-primary-dark"
+          class="absolute inset-0 bg-primary-dark h-full min-h-fit"
           v-if="isModalOpened && idInfoCardTech !== null"
         >
           <article class="prose prose-invert py-6 px-8 text-justify max-w-3xl prose-hr:my-4 prose-hr:border-t-primary-gray prose-p:my-4 prose-h1:mb-1 prose-h1:text-3xl">
             <component :is="technologies[idInfoCardTech]?.cardComponent">
-              <img :src="technologies[idInfoCardTech].logoPath" :alt="technologies[idInfoCardTech].name + ' logo'" class="h-12 m-0" />
+              <img
+                :src="technologies[idInfoCardTech]?.secondaryLogoPath ?? technologies[idInfoCardTech]?.logoPath"
+                :alt="technologies[idInfoCardTech].name + ' logo'"
+                class="h-12 m-0"
+              />
             </component>
           </article>
           <button aria-description="Close modal window" id="close-modal" @click="isModalOpened = false" class="absolute top-4 right-4 cursor-pointer h-10">
