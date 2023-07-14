@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Component } from 'vue';
 import { ref } from 'vue';
-import * as Card from '@/components/techInfoCards/';
+import * as Card from './techInfoCards';
 import { Motion, Presence } from 'motion/vue';
 
 const technologies: { name: string; logoPath: string; secondaryLogoPath?: string; cardComponent?: Component; span?: '2x' | '2y' }[] = [

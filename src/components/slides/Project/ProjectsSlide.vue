@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { supabase } from '@/supabase';
 import { onMounted, ref } from 'vue';
-import ProjectCard from '@/components/ProjectCard.vue';
+import ProjectCard from '@/components/slides/Project/ProjectCard.vue';
 
 const projects = ref<{ id: number; name: string; description: string; imagePath: string; technologies: string[] }[]>([]);
 const status = ref<number>(0);
