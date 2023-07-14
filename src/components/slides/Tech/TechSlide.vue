@@ -45,12 +45,12 @@ const isModalOpened = ref<boolean>(false);
 </script>
 
 <template>
-  <section class="bg-primary-light w-full h-full flex flex-col justify-center px-12">
-    <div class="max-w-4xl mx-auto w-full items-end mb-4">
+  <section class="bg-primary-light w-full h-full flex flex-col justify-center px-24">
+    <div class="max-w-4xl w-full items-end mb-4">
       <h1 class="text-4xl font-bold text-primary-dark uppercase">My Beloved Technologies</h1>
       <p class="text-xs text-zinc-500 mt-1">click for some cool info O_O</p>
     </div>
-    <div class="relative grid w-full max-w-4xl grid-cols-3 gap-10 mx-auto">
+    <div class="relative grid w-full max-w-4xl grid-cols-3 gap-10">
       <div
         v-for="(tech, index) in technologies"
         :key="tech.name"
