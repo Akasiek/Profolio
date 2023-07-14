@@ -7,35 +7,35 @@ import { Motion, Presence } from 'motion/vue';
 const technologies: { name: string; logoPath: string; secondaryLogoPath?: string; cardComponent?: Component; span?: '2x' | '2y' }[] = [
   {
     name: 'Yii',
-    logoPath: '/images/technologies/yii.svg',
+    logoPath: '/icons/technologies/yii.svg',
     span: '2x',
     cardComponent: Card.YiiCard
   },
   {
     name: 'React',
-    logoPath: '/images/technologies/react.svg',
+    logoPath: '/icons/technologies/react.svg',
     cardComponent: Card.ReactCard
   },
-  { name: 'Astro', logoPath: '/images/technologies/astro-dark.svg', secondaryLogoPath: '/images/technologies/astro.svg', cardComponent: Card.AstroCard },
+  { name: 'Astro', logoPath: '/icons/technologies/astro-dark.svg', secondaryLogoPath: '/icons/technologies/astro.svg', cardComponent: Card.AstroCard },
   {
     name: 'Vue',
-    logoPath: '/images/technologies/vue.svg',
+    logoPath: '/icons/technologies/vue.svg',
     span: '2y',
     cardComponent: Card.VueCard
   },
   {
     name: 'Tailwind',
-    logoPath: '/images/technologies/tailwind.svg',
+    logoPath: '/icons/technologies/tailwind.svg',
     cardComponent: Card.TailwindCard
   },
   {
     name: 'Django',
-    logoPath: '/images/technologies/django.svg',
+    logoPath: '/icons/technologies/django.svg',
     cardComponent: Card.DjangoCard
   },
   {
     name: 'Typescript',
-    logoPath: '/images/technologies/typescript.svg',
+    logoPath: '/icons/technologies/typescript.svg',
     cardComponent: Card.TypescriptCard
   }
 ];
