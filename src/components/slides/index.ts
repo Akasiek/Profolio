@@ -1,4 +1,4 @@
-import AboutSlide from './AboutSlide.vue';
+import AboutSlide from './About/AboutSlide.vue';
 import BlogSlide from './BlogSlide.vue';
 import ProjectsSlide from './Project/ProjectsSlide.vue';
 import TechSlide from './Tech/TechSlide.vue';
