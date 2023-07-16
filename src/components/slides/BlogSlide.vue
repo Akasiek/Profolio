@@ -26,17 +26,15 @@ onMounted(() => {
     status.value = res.status;
   });
 });
-
-console.log(blogPosts.value, status.value);
 </script>
 
 <template>
   <section class="bg-primary-light text-primary-dark w-full h-full flex flex-col justify-center px-24">
     <template v-if="status === 200 && Array.isArray(blogPosts) && blogPosts.length > 0">
       <h1 class="text-4xl font-bold uppercase mb-8">My Newest Blog Posts</h1>
-      <section class="grid grid-cols-2 gap-y-8 gap-x-8 max-w-4xl">
+      <section class="grid grid-cols-2 gap-8 max-w-4xl">
         <article v-for="(post, index) in blogPosts" :key="index" class="group cool-shadow border-2 border-primary-dark">
-          <div class="w-full h-44">
+          <div class="w-full h-40">
             <img :src="post.imagePath" :alt="'Image of a blog post: ' + post.title" class="w-full h-full object-center object-cover" />
           </div>
           <div class="px-4 py-3">
@@ -52,6 +50,7 @@ console.log(blogPosts.value, status.value);
           </div>
         </article>
       </section>
+      <a href="/blog" class="btn-link text-lg font-bold py-4 px-5 mt-6">See all of my blog posts</a>
     </template>
     <div v-else>
       <h1 class="text-6xl font-bold text-primary-dark">Don't Panic!</h1>

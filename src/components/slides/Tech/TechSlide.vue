@@ -46,9 +46,9 @@ const isModalOpened = ref<boolean>(false);
 
 <template>
   <section class="bg-primary-light w-full h-full flex flex-col justify-center px-24">
-    <div class="max-w-4xl w-full items-end mb-4">
+    <div class="max-w-4xl w-full mb-4">
       <h1 class="text-4xl font-bold text-primary-dark uppercase">My Beloved Technologies</h1>
-      <p class="text-xs text-zinc-500 mt-1">click for some cool info O_O</p>
+      <p class="text-xs text-primary-gray mt-1">Click for some cool info O_O</p>
     </div>
     <div class="relative grid w-full max-w-4xl grid-cols-3 gap-10">
       <div
