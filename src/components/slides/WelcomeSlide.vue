@@ -1,7 +1,7 @@
 <template>
   <section class="bg-primary-light w-full h-full font-bold flex flex-col justify-center text-primary-dark px-24">
     <h1 class="text-5xl">Hi! I’m Kamil,</h1>
-    <p class="text-xl mt-2">a full stuck web developer from Rzeszów, Poland</p>
+    <p class="text-xl mt-2">a full stack web developer from Rzeszów, Poland</p>
     <p class="text-sm font-light mt-2">Scroll down to see more ^_^</p>
   </section>
 </template>
