@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import ImagePanel from '@/components/ImagePanel.vue';
 import NavSide from '@/components/NavSide.vue';
 import MainSlider from '@/components/MainSlider.vue';
 </script>
 
 <template>
-  <main class="grid grid-cols-[20%_20%_60%]">
+  <main class="grid grid-cols-[25%_75%]">
     <NavSide />
-    <ImagePanel />
     <MainSlider />
   </main>
 </template>
