@@ -11,8 +11,6 @@ const links = [
   { label: 'Blog', url: '#blog' },
   { label: 'Contact', url: '#contact' }
 ];
-
-// TODO: Fix clicking function. Make it stop animation and play the new one.
 </script>
 
 <template>
@@ -22,7 +20,17 @@ const links = [
         v-for="(link, index) in links"
         :key="index"
         :href="link.url"
-        @click="slideStore.setSlide(index)"
+        @click="
+          () => {
+            const flicking = slideStore.flicking;
+            if (!flicking) return;
+
+            if (flicking.animating) flicking.control.stopAnimation();
+
+            slideStore.setSlide(index);
+            flicking.moveTo(index, 1000);
+          }
+        "
         class="hover:opacity-100 transition-opacity py-3"
         :class="{ 'opacity-100': slideStore.currentSlide === index, 'opacity-50': slideStore.currentSlide !== index }"
       >
