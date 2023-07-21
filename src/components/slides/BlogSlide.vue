@@ -29,19 +29,19 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="bg-primary-light text-primary-dark w-full h-full flex flex-col justify-center px-24">
+  <section class="bg-primary-light text-primary-dark w-full h-screen flex flex-col justify-center px-24">
     <template v-if="status === 200 && Array.isArray(blogPosts) && blogPosts.length > 0">
       <h1 class="text-4xl font-bold uppercase mb-8">My Newest Blog Posts</h1>
       <section class="grid grid-cols-2 gap-8 max-w-4xl">
         <article v-for="(post, index) in blogPosts" :key="index" class="group cool-shadow border-2 border-primary-dark">
-          <div class="w-full h-40">
+          <div class="w-full h-32">
             <img :src="post.imagePath" :alt="'Image of a blog post: ' + post.title" class="w-full h-full object-center object-cover" />
           </div>
           <div class="px-4 py-3">
             <p class="text-xs text-primary-gray mt-1">
               {{ post.creationDate }}
             </p>
-            <h3 class="font-bold">
+            <h3 class="text-lg font-bold">
               {{ post.title }}
             </h3>
             <p class="text-sm text-primary-gray">
