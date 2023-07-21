@@ -41,7 +41,7 @@ const technologies: { name: string; logoPath: string; secondaryLogoPath?: string
 ];
 
 const idInfoCardTech = ref<number | null>(null);
-const isModalOpened = ref<boolean>(false);
+const isModalOpen = ref<boolean>(false);
 </script>
 
 <template>
@@ -59,7 +59,7 @@ const isModalOpened = ref<boolean>(false);
         @click="
           () => {
             idInfoCardTech = index;
-            isModalOpened = true;
+            isModalOpen = true;
           }
         "
         :aria-description="'Click to open modal with more info about ' + tech.name"
@@ -76,7 +76,7 @@ const isModalOpened = ref<boolean>(false);
           :animate="{ opacity: 1, scale: 1 }"
           :exit="{ opacity: 0, scale: 0.6 }"
           class="absolute inset-0 bg-primary-dark h-full min-h-fit"
-          v-if="isModalOpened && idInfoCardTech !== null"
+          v-if="isModalOpen && idInfoCardTech !== null"
         >
           <article class="prose prose-invert py-6 px-8 text-justify max-w-3xl prose-hr:my-4 prose-hr:border-t-primary-gray prose-p:my-4 prose-h1:mb-1 prose-h1:text-3xl">
             <component :is="technologies[idInfoCardTech]?.cardComponent">
@@ -87,7 +87,7 @@ const isModalOpened = ref<boolean>(false);
               />
             </component>
           </article>
-          <button aria-description="Close modal window" id="close-modal" @click="isModalOpened = false" class="absolute top-4 right-4 cursor-pointer h-10">
+          <button aria-description="Close modal window" id="close-modal" @click="isModalOpen = false" class="absolute top-4 right-4 cursor-pointer h-10">
             <img class="h-full w-full" src="/icons/close-white.svg" alt="Close icon" />
           </button>
         </Motion>
