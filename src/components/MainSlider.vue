@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import Flicking, { Status } from '@egjs/vue3-flicking';
+import type { Status } from '@egjs/vue3-flicking';
+import Flicking from '@egjs/vue3-flicking';
 import { useSlideStore } from '@/stores/slide';
 import type { VueFlicking } from '@egjs/vue3-flicking/declaration/types';
 import * as Slide from '@/components/slides/';
@@ -15,7 +16,7 @@ const slides = [
   { component: Slide.TechSlide, hash: '#tech' },
   { component: Slide.ProjectsSlide, hash: '#projects' },
   { component: Slide.BlogSlide, hash: '#blog' },
-  { component: Slide.ContactSlide, hash: '#contact' }
+  { component: Slide.ContactSlide, hash: '#contact' },
 ];
 
 const getDefaultSlide = () => {

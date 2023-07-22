@@ -9,7 +9,7 @@ const links = [
   { label: 'Technologies', url: '#tech' },
   { label: 'Projects', url: '#projects' },
   { label: 'Blog', url: '#blog' },
-  { label: 'Contact', url: '#contact' }
+  { label: 'Contact', url: '#contact' },
 ];
 </script>
 
@@ -22,13 +22,12 @@ const links = [
         :href="link.url"
         @click="
           () => {
-            const flicking = slideStore.flicking;
-            if (!flicking) return;
+            if (!slideStore.flicking) return;
 
-            if (flicking.animating) flicking.control.stopAnimation();
+            if (slideStore.flicking.animating) slideStore.flicking.control.stopAnimation();
 
             slideStore.setSlide(index);
-            flicking.moveTo(index, 1000);
+            slideStore.flicking.moveTo(index, 1000);
           }
         "
         class="hover:opacity-100 transition-opacity py-3"
