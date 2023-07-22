@@ -6,14 +6,14 @@ const links = [
     url: 'mailto:kpomykala2002@gmail.com',
     title: 'Send me an email',
     subtitle: 'kpomykala2002@gmail.com',
-    noBlank: true
+    noBlank: true,
   },
   {
     iconPath: '/icons/contact/discord.svg',
     iconAlt: 'Discord logo',
     url: 'https://discordapp.com/users/202501503280349184',
     title: 'DM me on Discord',
-    subtitle: '@akasiek'
+    subtitle: '@akasiek',
   },
   {
     iconPath: '/icons/about/linkedin.svg',
@@ -21,8 +21,8 @@ const links = [
     url: 'https://www.linkedin.com/in/kamil-pomykala/',
     title: 'Connect with me on LinkedIn',
     subtitle: 'Kamil Pomykała',
-    span: 2
-  }
+    span: 2,
+  },
 ];
 </script>
 
@@ -47,6 +47,9 @@ const links = [
           <p class="text-sm text-primary-gray break-all">{{ link.subtitle }}</p>
         </div>
       </a>
+    </div>
+    <div>
+      <p class="text-xs text-zinc-500 mt-4">Kamil Pomykała Profolio - Copyright &copy; 2023 | All Rights Reserved</p>
     </div>
   </section>
 </template>
