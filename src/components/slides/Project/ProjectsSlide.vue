@@ -1,21 +1,18 @@
 <script setup lang="ts">
-import { supabase } from '@/supabase';
 import { onMounted, ref } from 'vue';
 import ProjectCard from '@/components/slides/Project/ProjectCard.vue';
+import { fetchProjects } from '@/helpers/fetch';
 
 const projects = ref<{ id: number; name: string; description: string; imagePath: string; technologies: string[] }[]>([]);
 const status = ref<number>(0);
 
-const getProjects = async () => {
-  let { data, status } = await supabase.from('Projects').select(`id, name, description, image_link, technologies`).order('creation_date', { ascending: false }).limit(3);
-
-  return { data, status };
-};
-
 onMounted(() => {
-  getProjects().then((res) => {
+  fetchProjects({ lower: 0, upper: 2 }).then((res) => {
+    projects.value = [];
+
     res.data?.forEach((element) => {
-      projects.value.push({ id: parseInt(element.id), name: element.name, description: element.description, imagePath: element.image_link, technologies: element.technologies });
+      const { id, name, description, image_link, technologies } = element;
+      projects.value.push({ id: parseInt(id), name, description, imagePath: image_link, technologies });
     });
 
     status.value = res.status;
@@ -32,7 +29,7 @@ onMounted(() => {
           <ProjectCard :project="project" />
         </template>
       </section>
-      <a href="/project" class="btn-link text-lg font-bold py-4 px-5 mt-12">See all of my projects</a>
+      <a href="/projects" class="btn-link text-lg font-bold py-4 px-5 mt-12">See all of my projects</a>
     </template>
     <div v-else>
       <h1 class="text-6xl font-bold text-primary-dark">Don't Panic!</h1>

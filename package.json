@@ -39,5 +39,11 @@
     "typescript": "~5.0.4",
     "vite": "^4.3.9",
     "vue-tsc": "^1.6.5"
+  },
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "printWidth": 180
   }
 }
