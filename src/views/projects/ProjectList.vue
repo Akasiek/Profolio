@@ -45,7 +45,7 @@ watch(currentPage, () => {
 
 <template>
   <main class="bg-primary-light min-h-screen" v-if="status === 200 || status === null">
-    <TopBar header-text="My projects" home-link="/#projects" />
+    <TopBar header-text="Projects" home-link="/#projects" />
 
     <div class="max-w-5xl mx-auto pb-16 px-6 md:px-8">
       <section class="my-12 grid grid-cols-1 lg:grid-cols-2 gap-10">

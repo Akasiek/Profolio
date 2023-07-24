@@ -3,6 +3,8 @@ import { supabase } from '@/supabase';
 export const fetchProjects = async (range: { lower: number; upper: number }) =>
   supabase.from('Projects').select(`id, name, description, image_link, technologies`).order('creation_date', { ascending: false }).range(range.lower, range.upper);
 
+export const fetchProject = async (id: string) => supabase.from('Projects').select(`id, name, description, image_link, technologies, content, github_link`).eq('id', id);
+
 export const fetchBlogPosts = async (range: { lower: number; upper: number }, sort: 'newest' | 'oldest' = 'newest') => {
   const sortOptions = {
     newest: { column: 'creation_date', order: 'desc' },

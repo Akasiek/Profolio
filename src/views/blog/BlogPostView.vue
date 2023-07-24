@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { useRoute } from 'vue-router';
-import { fetchBlogPost } from '@/helpers/fetch';
 import { onMounted, ref, watch } from 'vue';
-import type { IBlogPost } from '@/helpers/interfaces';
-import ErrorComponent from '@/components/ErrorComponent.vue';
 import { Presence } from 'motion/vue';
-import LoadingIndicator from '@/components/LoadingIndicator.vue';
-import TopBar from '@/components/TopBar.vue';
+import { useRoute } from 'vue-router';
 import { marked } from 'marked';
+
+import { fetchBlogPost } from '@/helpers/fetch';
+import type { IBlogPost } from '@/helpers/interfaces';
+import TopBar from '@/components/TopBar.vue';
+import ErrorComponent from '@/components/ErrorComponent.vue';
+import LoadingIndicator from '@/components/LoadingIndicator.vue';
 
 const route = useRoute();
 
