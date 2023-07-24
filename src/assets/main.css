@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import '@vueform/multiselect/themes/default.css';
 
 @tailwind base;
 @tailwind components;
@@ -21,4 +22,19 @@
     @apply w-fit border-2 px-5 py-7 border-primary-dark bg-primary-light text-primary-dark cool-shadow disabled:shadow-none
     enabled:opacity-100 disabled:opacity-50 disabled:cursor-not-allowed transition-all
   }
+}
+
+.select-default {
+  --ms-bg: 'transparent';
+  --ms-radius: none;
+  --ms-border-width: 2px;
+  --ms-ring-color: #fffffff;
+  --ms-border-color: #201e1f;
+  --ms-border-color-active: #201e1f;
+
+  --ms-option-bg-selected: #333333;
+  --ms-option-bg-selected-pointed: #201e1f;
+
+  --ms-dropdown-border-color: #201e1f;
+  --ms-dropdown-border-width: 2px;
 }

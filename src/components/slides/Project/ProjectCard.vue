@@ -1,12 +1,8 @@
 <script setup lang="ts">
+import type { IProject } from '@/helpers/interfaces';
+
 defineProps<{
-  project: {
-    id: number;
-    name: string;
-    description: string;
-    imagePath: string;
-    technologies: string[];
-  };
+  project: IProject;
   bigPreview?: boolean;
 }>();
 </script>
@@ -22,7 +18,7 @@ defineProps<{
           {{ project.name }}
         </h3>
         <p class="text-primary-gray text-base max-w-xl">{{ project.description }}</p>
-        <div class="flex gap-2 mt-2">
+        <div class="flex gap-2 mt-2" v-if="project.technologies">
           <div v-for="(tech, index) in project.technologies.slice(0, 3)" :key="index" class="text-xs font-bold border-2 border-primary-gray text-primary-gray py-1 px-3">
             {{ tech }}
           </div>
@@ -38,7 +34,7 @@ defineProps<{
           {{ project.name }}
         </h3>
         <p class="text-primary-gray text-base">{{ project.description }}</p>
-        <div class="flex flex-wrap gap-2 mt-6">
+        <div class="flex flex-wrap gap-2 mt-6" v-if="project.technologies">
           <div v-for="(tech, index) in project.technologies" :key="index" class="text-xs font-bold border-2 border-primary-gray text-primary-gray py-1 px-3">
             {{ tech }}
           </div>

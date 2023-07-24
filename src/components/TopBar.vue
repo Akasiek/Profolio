@@ -6,7 +6,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="sticky top-0 inset-x-0 bg-primary-light">
+  <div class="sticky top-0 inset-x-0 bg-primary-light z-50">
     <div class="max-w-5xl mx-auto flex items-center gap-4 justify-between px-6 md:px-8 py-4 md:py-6">
       <h1 class="w-fit text-lg md:text-2xl lg:text-3xl font-bold uppercase">{{ headerText }}</h1>
 

@@ -3,9 +3,11 @@ import { onMounted, ref, watch } from 'vue';
 import ProjectCard from '@/components/slides/Project/ProjectCard.vue';
 import { fetchProjects } from '@/helpers/fetch';
 import { setPage } from '@/helpers/helper';
-import SecondaryTopBar from '@/components/SecondaryTopBar.vue';
+import TopBar from '@/components/TopBar.vue';
+import type { IProject } from '@/helpers/interfaces';
+import ErrorComponent from '@/components/ErrorComponent.vue';
 
-const projects = ref<{ id: number; name: string; description: string; imagePath: string; technologies: string[] }[]>([]);
+const projects = ref<IProject[]>([]);
 const status = ref<number | null>(null);
 const currentPage = ref<number>(1);
 
@@ -43,7 +45,7 @@ watch(currentPage, () => {
 
 <template>
   <main class="bg-primary-light min-h-screen" v-if="status === 200 || status === null">
-    <SecondaryTopBar header-text="My projects" home-link="/#projects" />
+    <TopBar header-text="My projects" home-link="/#projects" />
 
     <div class="max-w-5xl mx-auto pb-16 px-6 md:px-8">
       <section class="my-12 grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -58,11 +60,5 @@ watch(currentPage, () => {
       </div>
     </div>
   </main>
-  <main v-else class="bg-primary-light h-screen w-screen flex items-center justify-center">
-    <div>
-      <h1 class="text-6xl font-bold text-primary-dark">Don't Panic!</h1>
-      <p class="text-zinc-400 text-lg mb-4">Projects could not be fetched...</p>
-      <a href="/" class="btn-link py-2 font-bold w-full text-center block"> Go back to safety </a>
-    </div>
-  </main>
+  <ErrorComponent v-else secondary-text="Projects could not be fetched..." />
 </template>

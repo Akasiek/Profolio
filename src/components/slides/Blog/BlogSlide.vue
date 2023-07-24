@@ -2,8 +2,9 @@
 import { onMounted, ref } from 'vue';
 import { fetchBlogPosts } from '@/helpers/fetch';
 import BlogPostCard from '@/components/slides/Blog/BlogPostCard.vue';
+import type { IBlogPost } from '@/helpers/interfaces';
 
-const blogPosts = ref<{ id: number; title: string; description: string; imagePath: string; creationDate: string }[]>([]);
+const blogPosts = ref<IBlogPost[]>([]);
 const status = ref<number>(0);
 
 onMounted(() => {

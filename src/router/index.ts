@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '@/views/HomeView.vue';
-import ProjectListView from '@/views/projects/ProjectListView.vue';
-import BlogPostListView from '@/views/blog/BlogPostListView.vue';
+import ProjectList from '@/views/projects/ProjectList.vue';
+import { BlogPostList, BlogPostView } from '@/views/blog';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,12 +14,17 @@ const router = createRouter({
     {
       path: '/projects',
       name: 'projectList',
-      component: ProjectListView,
+      component: ProjectList,
     },
     {
       path: '/blog',
       name: 'blog',
-      component: BlogPostListView,
+      component: BlogPostList,
+    },
+    {
+      path: '/blog/:id',
+      name: 'blogPost',
+      component: BlogPostView,
     },
   ],
 });

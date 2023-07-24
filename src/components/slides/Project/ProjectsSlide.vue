@@ -2,8 +2,9 @@
 import { onMounted, ref } from 'vue';
 import ProjectCard from '@/components/slides/Project/ProjectCard.vue';
 import { fetchProjects } from '@/helpers/fetch';
+import type { IProject } from '@/helpers/interfaces';
 
-const projects = ref<{ id: number; name: string; description: string; imagePath: string; technologies: string[] }[]>([]);
+const projects = ref<IProject[]>([]);
 const status = ref<number>(0);
 
 onMounted(() => {

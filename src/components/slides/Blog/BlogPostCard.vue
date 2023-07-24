@@ -1,12 +1,8 @@
 <script setup lang="ts">
+import type { IBlogPost } from '@/helpers/interfaces';
+
 defineProps<{
-  blogPost: {
-    id: number;
-    title: string;
-    description: string;
-    imagePath: string;
-    creationDate: string;
-  };
+  blogPost: IBlogPost;
   bigPreview?: boolean;
 }>();
 </script>
