@@ -4,11 +4,11 @@ import { useRoute } from "vue-router";
 import { Presence } from "motion/vue";
 import { marked } from "marked";
 
-import { IProject } from "@/helpers/interfaces";
 import TopBar from "@/components/TopBar.vue";
 import ErrorComponent from "@/components/ErrorComponent.vue";
 import LoadingIndicator from "@/components/LoadingIndicator.vue";
 import { fetchProject } from "@/helpers/fetch";
+import type { IProject } from "@/helpers/interfaces";
 
 const route = useRoute();
 
