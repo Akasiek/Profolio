@@ -25,16 +25,21 @@
 }
 
 .select-default {
-  --ms-bg: 'transparent';
   --ms-radius: none;
+  --ms-bg: #F5F5F5;
   --ms-border-width: 2px;
-  --ms-ring-color: #fffffff;
+  --ms-ring-color: #F5F5F5;
   --ms-border-color: #201e1f;
   --ms-border-color-active: #201e1f;
+
+  --ms-dropdown-bg: #F5F5F5;
 
   --ms-option-bg-selected: #333333;
   --ms-option-bg-selected-pointed: #201e1f;
 
   --ms-dropdown-border-color: #201e1f;
   --ms-dropdown-border-width: 2px;
+
+  --ms-tag-bg: #333333;
+  --ms-tag-radius: 0px;
 }

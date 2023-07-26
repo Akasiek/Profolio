@@ -12,7 +12,12 @@ export interface IProject {
   name: string;
   description: string;
   imagePath: string;
-  technologies?: string[];
+  technologies?: { name: string }[];
   content?: string;
   githubLink?: string;
+}
+
+export interface ITechnology {
+  id: number;
+  name: string;
 }
