@@ -51,7 +51,7 @@ defineProps<{
         <h3 class="mb-2 text-lg font-bold md:text-xl lg:text-2xl">
           {{ project.name }}
         </h3>
-        <p class="max-[1024px]:truncate-second-line text-sm text-primary-gray lg:text-base">{{ project.description }}</p>
+        <p class="max-lg:truncate-second-line text-sm text-primary-gray lg:text-base">{{ project.description }}</p>
         <div class="mt-4 flex flex-wrap gap-2 lg:mt-6" v-if="project.technologies">
           <div
             v-for="(tech, index) in project.technologies"

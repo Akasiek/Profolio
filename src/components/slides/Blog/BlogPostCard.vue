@@ -20,7 +20,7 @@ defineProps<{
         <h3 class="text-base font-bold md:text-lg">
           {{ blogPost.title }}
         </h3>
-        <p class="max-[1024px]:truncate-second-line truncate-third-line text-xs text-primary-gray md:text-sm">
+        <p class="max-lg:truncate-second-line truncate-third-line text-xs text-primary-gray md:text-sm">
           {{ blogPost.description }}
         </p>
       </div>
