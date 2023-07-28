@@ -6,13 +6,13 @@ defineProps<{
 </script>
 
 <template>
-  <div class="sticky top-0 inset-x-0 bg-primary-light z-50">
-    <div class="max-w-5xl mx-auto flex items-center gap-4 justify-between px-6 md:px-8 py-4 md:py-6">
-      <h1 class="w-fit text-lg md:text-2xl lg:text-3xl font-bold uppercase">{{ headerText }}</h1>
+  <div class="sticky inset-x-0 top-0 z-50 bg-primary-light">
+    <div class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-4 md:px-8 md:py-6">
+      <h1 class="w-fit text-lg font-bold uppercase md:text-2xl lg:text-3xl">{{ headerText }}</h1>
 
-      <a :href="homeLink ?? '/'" class="btn-link px-3 md:px-5 py-2 font-bold whitespace-nowrap h-fit text-sm sm:text-base">
+      <a :href="homeLink ?? '/'" class="btn-link h-fit whitespace-nowrap px-3 py-2 text-sm font-bold sm:text-base md:px-5">
         <span class="hidden md:inline">Back to home →</span>
-        <img src="/icons/home.svg" alt="Home icon" class="block md:hidden h-6 w-full" />
+        <img src="/icons/home.svg" alt="Home icon" class="block h-5 w-full md:hidden md:h-6" />
       </a>
     </div>
   </div>

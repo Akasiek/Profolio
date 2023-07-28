@@ -19,8 +19,24 @@
   }
 
   .btn-link {
-    @apply w-fit border-2 px-5 py-7 border-primary-dark bg-primary-light text-primary-dark cool-shadow disabled:shadow-none
-    enabled:opacity-100 disabled:opacity-50 disabled:cursor-not-allowed transition-all
+    @apply w-fit border-2 px-3 py-1 sm:py-2 md:py-3 lg:px-5 lg:py-4 text-sm sm:text-base md:text-lg border-primary-dark bg-primary-light text-primary-dark
+    cool-shadow disabled:shadow-none enabled:opacity-100 disabled:opacity-50 disabled:cursor-not-allowed transition-all
+  }
+
+  .btn-pagination {
+    @apply btn-link py-1 sm:py-1.5 md:py-2 lg:py-3 text-sm font-bold sm:text-base
+  }
+
+  .slide-title {
+    @apply text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-primary-dark uppercase
+  }
+
+  .truncate-second-line {
+    @apply overflow-hidden text-ellipsis line-clamp-2
+  }
+
+  .truncate-third-line {
+    @apply truncate-second-line line-clamp-3
   }
 }
 

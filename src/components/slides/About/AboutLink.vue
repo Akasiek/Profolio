@@ -12,15 +12,15 @@ defineProps<{
 
 <template>
   <div class="border-2 border-primary-dark w-fit aspect-square relative icon-container">
-    <a :href="link.url" target="_blank" class="block py-4 px-4">
-      <img :src="link.iconPath" :alt="`${link.label} icon`" class="h-8" />
+    <a :href="link.url" target="_blank" class="block p-2 sm:p-3 lg:p-4">
+      <img :src="link.iconPath" :alt="`${link.label} icon`" class="h-5 sm:h-6 lg:h-8" />
     </a>
-    <div class="absolute inset-x-0 -inset-y-[2px] z-20" :class="link.tagOnTheLeft ? 'clip-path-right' : 'clip-path-left'">
+    <div class="hidden lg:block absolute inset-x-0 -inset-y-[2px] z-20" :class="link.tagOnTheLeft ? 'clip-path-right' : 'clip-path-left'">
       <div
         class="absolute bg-primary-dark flex flex-col justify-center px-3 text-primary-light inset-y-0 transition duration-300 ease-in-out"
         :class="link.tagOnTheLeft ? 'right-[100%] translate-x-full' : 'left-[100%] -translate-x-full'"
       >
-        <h3 class="text-lg font-bold">{{ link.label }}</h3>
+        <h3 class="text-sm sm:text-base lg:text-lg font-bold">{{ link.label }}</h3>
         <p class="text-xs text-secondary-light whitespace-nowrap">{{ link.description }}</p>
       </div>
     </div>

@@ -66,44 +66,32 @@ watch([currentPage, selectedTechnologies], () => {
 </script>
 
 <template>
-  <main class="bg-primary-light min-h-screen" v-if="status === 200 || status === null">
+  <main class="min-h-screen bg-primary-light" v-if="status === 200 || status === null">
     <TopBar header-text="Projects" home-link="/#projects" />
 
-    <div class="max-w-5xl mx-auto pb-16 mt-8 px-6 md:px-8">
+    <div class="mx-auto mt-6 max-w-5xl px-4 pb-12 md:px-8 md:pb-16">
       <div class="flex items-center">
-        <label for="sort" class="mr-5">Sort by</label>
+        <label for="sort" class="mr-2 md:mr-4">Filter by</label>
         <Multiselect
           id="sort"
           mode="tags"
           v-model="selectedTechnologies"
           :options="technologiesOptions"
           class="select-default"
-          style="width: 14rem; margin: 0"
+          style="max-width: 14rem; margin: 0"
           :canClear="false"
         />
       </div>
 
-      <section class="my-12 grid grid-cols-1 lg:grid-cols-2 gap-10">
+      <section class="my-10 grid grid-cols-1 gap-8 md:my-12 md:grid-cols-2 md:gap-10">
         <template v-for="project in projects" :key="project.id">
           <ProjectCard :project="project" big-preview />
         </template>
       </section>
 
       <div class="flex gap-4">
-        <button
-          @click="setCurrentPage(currentPage - 1)"
-          :disabled="currentPage === 1"
-          class="btn-link font-bold py-3 px-5 text-sm sm:text-base"
-        >
-          Previous Page
-        </button>
-        <button
-          @click="setCurrentPage(currentPage + 1)"
-          :disabled="projects.length < pageSize"
-          class="btn-link font-bold py-3 px-5 text-sm sm:text-base"
-        >
-          Next Page
-        </button>
+        <button @click="setCurrentPage(currentPage - 1)" :disabled="currentPage === 1" class="btn-pagination">Previous Page</button>
+        <button @click="setCurrentPage(currentPage + 1)" :disabled="projects.length < pageSize" class="btn-pagination">Next Page</button>
       </div>
     </div>
   </main>

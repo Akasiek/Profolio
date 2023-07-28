@@ -8,23 +8,31 @@ defineProps<{
 </script>
 
 <template>
+  <!-- SMALL PREVIEW -->
   <template v-if="!bigPreview">
-    <a :href="'/projects/' + project.id" class="flex items-center gap-6 group">
+    <a
+      :href="'/projects/' + project.id"
+      class="group grid grid-cols-[40%_60%] items-center gap-3 md:grid-cols-[auto_70%] md:gap-4 lg:grid-cols-[auto_3fr] lg:gap-6"
+    >
       <div
-        class="h-32 aspect-video overflow-hidden cursor-pointer shadow-[0_0_0_#201E1F] group-hover:shadow-[10px_10px_0_#201E1F] transition-all duration-150"
+        class="h-full cursor-pointer overflow-hidden shadow-[0_0_0_#201E1F] transition-all duration-150 group-hover:shadow-[10px_10px_0_#201E1F] md:max-w-[16rem] lg:max-w-[14rem]"
       >
-        <img :src="project.imagePath" :alt="project.name + ' project image'" class="object-cover object-center h-full w-full" />
+        <img :src="project.imagePath" :alt="project.name + ' project image'" class="h-full w-full object-cover object-center" />
       </div>
       <div>
-        <h3 class="font-bold text-2xl">
+        <h3 class="text-base font-bold sm:text-lg md:text-xl lg:text-2xl">
           {{ project.name }}
         </h3>
-        <p class="text-primary-gray text-base max-w-xl">{{ project.description }}</p>
-        <div class="flex gap-2 mt-2" v-if="project.technologies">
+
+        <p class="truncate-second-line max-w-xl text-xs text-primary-gray sm:text-sm lg:text-base">
+          {{ project.description }}
+        </p>
+
+        <div class="mt-2 flex gap-2" v-if="project.technologies">
           <div
             v-for="(tech, index) in project.technologies.slice(0, 3)"
             :key="index"
-            class="text-xs font-bold border-2 border-primary-gray text-primary-gray py-1 px-3"
+            class="border-2 border-primary-gray px-1.5 py-0.5 text-xs text-primary-gray md:px-3 md:py-1 md:font-bold"
           >
             {{ tech.name }}
           </div>
@@ -32,21 +40,23 @@ defineProps<{
       </div>
     </a>
   </template>
+
+  <!-- BIG PREVIEW -->
   <template v-if="bigPreview">
-    <a :href="'/projects/' + project.id" class="border-2 border-primary-dark cool-shadow block gap-6 group h-full">
-      <div class="w-full h-64">
-        <img :src="project.imagePath" :alt="project.name + ' project image'" class="object-cover object-center h-full w-full" />
+    <a :href="'/projects/' + project.id" class="cool-shadow group block h-full gap-6 border-2 border-primary-dark">
+      <div class="h-36 w-full md:h-48 lg:h-64">
+        <img :src="project.imagePath" :alt="project.name + ' project image'" class="h-full w-full object-cover object-center" />
       </div>
-      <div class="py-8 px-6">
-        <h3 class="font-bold text-2xl">
+      <div class="px-4 py-4 md:py-5 lg:px-6 lg:py-8">
+        <h3 class="mb-2 text-lg font-bold md:text-xl lg:text-2xl">
           {{ project.name }}
         </h3>
-        <p class="text-primary-gray text-base">{{ project.description }}</p>
-        <div class="flex flex-wrap gap-2 mt-6" v-if="project.technologies">
+        <p class="max-[1024px]:truncate-second-line text-sm text-primary-gray lg:text-base">{{ project.description }}</p>
+        <div class="mt-4 flex flex-wrap gap-2 lg:mt-6" v-if="project.technologies">
           <div
             v-for="(tech, index) in project.technologies"
             :key="index"
-            class="text-xs font-bold border-2 border-primary-gray text-primary-gray py-1 px-3"
+            class="border-2 border-primary-gray px-2 py-0.5 text-xs font-bold text-primary-gray md:px-3 md:py-1"
           >
             {{ tech.name }}
           </div>
