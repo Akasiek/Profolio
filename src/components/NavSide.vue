@@ -32,17 +32,16 @@ const handleNavigation = (index: number) => {
 </script>
 
 <template>
-  <button
-    class="fixed left-0 right-0 top-0 z-50 flex cursor-pointer justify-end bg-primary-light p-4 lg:hidden"
-    @click="showNav = !showNav"
-  >
-    <img src="/icons/menu.svg" alt="" class="h-8 md:h-12" />
-  </button>
+  <div class="fixed left-0 right-0 top-0 flex justify-end bg-primary-light lg:hidden" @click="showNav = !showNav" style="z-index: 30">
+    <button class="cursor-pointer p-4">
+      <img src="/icons/menu.svg" class="h-8 md:h-12" alt="Open menu icon" />
+    </button>
+  </div>
   <nav
-    class="fixed inset-0 z-50 block h-screen bg-primary-light text-primary-dark transition-transform duration-700 lg:static"
+    class="fixed inset-0 z-30 block h-screen bg-primary-light text-primary-dark transition-transform duration-700 lg:static"
     :class="showNav ? 'max-lg:translate-x-0' : 'max-lg:translate-x-full'"
   >
-    <button class="fixed right-0 top-0 z-50 cursor-pointer p-4 lg:hidden" @click="showNav = !showNav">
+    <button class="fixed right-0 top-0 cursor-pointer p-4 lg:hidden" @click="showNav = !showNav">
       <img src="/icons/close.svg" alt="" class="h-8 md:h-12" />
     </button>
     <div class="mx-auto flex h-full w-fit flex-col justify-center text-right text-2xl font-black">
