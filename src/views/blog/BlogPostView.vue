@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from 'vue';
-import { Presence } from 'motion/vue';
+import { Presence } from '@oku-ui/motion';
 import { useRoute } from 'vue-router';
 import { marked } from 'marked';
 

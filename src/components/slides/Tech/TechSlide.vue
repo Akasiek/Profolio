@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { Component } from "vue";
-import { onMounted, ref } from "vue";
-import * as Card from "./techInfoCards";
-import { Motion, Presence } from "motion/vue";
+import type { Component } from 'vue';
+import { onMounted, ref } from 'vue';
+import * as Card from './techInfoCards';
+import { Motion, Presence } from '@oku-ui/motion';
 
 const technologies: { name: string; logoPath: string; secondaryLogoPath?: string; cardComponent?: Component; span?: "2x" | "2y" }[] = [
   {

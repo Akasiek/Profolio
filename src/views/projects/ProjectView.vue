@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
-import { Presence } from 'motion/vue';
+import { Presence } from '@oku-ui/motion';
 import { marked } from 'marked';
 
 import TopBar from '@/components/TopBar.vue';

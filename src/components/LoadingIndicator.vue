@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Motion } from 'motion/vue';
+import { Motion } from '@oku-ui/motion';
 
 /**
  * When used, loading indicator component and other components should be wrapped in a <Presence> component.
