@@ -1,4 +1,4 @@
-import { supabase } from "@/supabase";
+import { supabase } from '@/supabase';
 
 export const fetchProjects = async (range: { lower: number; upper: number }, technologies?: string[]) =>
   technologies && technologies.length > 0
@@ -15,7 +15,7 @@ export const fetchProjects = async (range: { lower: number; upper: number }, tec
         .range(range.lower, range.upper);
 
 export const fetchProject = async (id: string) =>
-  supabase.from("projects").select(`id, name, description, image_link, content, github_link, technologies (name)`).eq("id", id);
+  supabase.from("projects").select(`id, name, description, image_link, background_link, content, github_link, technologies (name)`).eq("id", id);
 
 export const fetchBlogPosts = async (range: { lower: number; upper: number }, sort: "newest" | "oldest" = "newest") => {
   const sortOptions = {

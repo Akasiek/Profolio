@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { onMounted, ref, watch } from "vue";
-import { useRoute } from "vue-router";
-import { Presence } from "motion/vue";
-import { marked } from "marked";
+import { onMounted, ref, watch } from 'vue';
+import { useRoute } from 'vue-router';
+import { Presence } from 'motion/vue';
+import { marked } from 'marked';
 
-import TopBar from "@/components/TopBar.vue";
-import ErrorComponent from "@/components/ErrorComponent.vue";
-import LoadingIndicator from "@/components/LoadingIndicator.vue";
-import { fetchProject } from "@/helpers/fetch";
-import type { IProject } from "@/helpers/interfaces";
+import TopBar from '@/components/TopBar.vue';
+import ErrorComponent from '@/components/ErrorComponent.vue';
+import LoadingIndicator from '@/components/LoadingIndicator.vue';
+import { fetchProject } from '@/helpers/fetch';
+import type { IProject } from '@/helpers/interfaces';
 
 const route = useRoute();
 
@@ -23,12 +23,13 @@ const getProject = () => {
       return;
     }
 
-    const { id, name, description, image_link, technologies, content, github_link } = res.data[0];
+    const { id, name, description, image_link, background_link, technologies, content, github_link } = res.data[0];
     project.value = {
       id,
       name,
       description,
       imagePath: image_link,
+      backgroundImagePath: background_link,
       technologies,
       content,
       githubLink: github_link
@@ -51,7 +52,7 @@ watch(route, () => {
       <TopBar header-text="Projects" home-link="/#projects" />
 
       <section class="h-[40vh] w-full">
-        <img :src="project.imagePath" alt="" class="object-center object-cover w-full h-full" />
+        <img :src="project.backgroundImagePath ?? project.imagePath" alt="" class="object-center object-cover w-full h-full" />
       </section>
 
       <article class="max-w-5xl mx-auto px-6 md:px-8">

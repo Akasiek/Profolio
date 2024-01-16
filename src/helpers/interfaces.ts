@@ -12,6 +12,7 @@ export interface IProject {
   name: string;
   description: string;
   imagePath: string;
+  backgroundImagePath?: string;
   technologies?: { name: string }[];
   content?: string;
   githubLink?: string;
