@@ -63,7 +63,7 @@ watch(route, () => {
         <p class="text-zinc-400 text-lg mb-4">{{ project.description }}</p>
 
         <div class="flex gap-6 flex-wrap items-center justify-between">
-          <div class="flex flex-wrap gap-3 items-center">
+          <div class="flex flex-wrap gap-3 items-center" v-show='project.technologies && project.technologies?.length > 0'>
             Technologies used:
             <div class="flex flex-wrap gap-3 items-center">
               <span
