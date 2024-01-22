@@ -15,6 +15,7 @@
     "@egjs/vue3-flicking": "^4.10.7",
     "@oku-ui/motion": "^0.3.2",
     "@supabase/supabase-js": "^2.26.0",
+    "@vercel/analytics": "^1.1.2",
     "@vueform/multiselect": "^2.6.2",
     "marked": "^11.1.1",
     "motion": "^10.16.2",
