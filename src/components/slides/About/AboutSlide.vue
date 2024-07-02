@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AboutLink from "./AboutLink.vue";
+import AboutLink from './AboutLink.vue';
 
 const links = [
   {
@@ -33,6 +33,15 @@ const links = [
     iconPath: "/icons/about/literal-club.svg"
   }
 ];
+
+// Calculate my age based on my birthdate - 2002-06-17
+const currentDate = new Date();
+let calculatedAge = currentDate.getFullYear() - 2002;
+
+if (currentDate.getMonth() < 5 || (currentDate.getMonth() === 5 && currentDate.getDate() < 17)) {
+  calculatedAge--;
+}
+
 </script>
 
 <template>
@@ -40,7 +49,7 @@ const links = [
     <div class="max-w-3xl">
       <h1 class="slide-title">Something about me</h1>
       <div class="flex flex-col gap-3 lg:gap-5 text-primary-gray text-base lg:text-lg">
-        <p>Like I said my name's Kamil, I'm 21 years old. I'm a <b>Junior Full Stack Developer</b> located in Rzeszów, Poland.</p>
+        <p>Like I said my name's Kamil, I'm {{ calculatedAge }} years old. I'm a <b>Junior Full Stack Developer</b> located in Rzeszów, Poland.</p>
         <p>I started my coding adventure ️in Middle School. First it was <i>Scratch, C++, HTML</i> and then it just went on...</p>
         <p>
           Music is a big part of me. I worship Rock music and in particular the genres of <b>Progressive Rock</b> and <b>Post-Rock</b>.
