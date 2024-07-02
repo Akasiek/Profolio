@@ -50,7 +50,7 @@ const links = [
         </a>
       </div>
       <div>
-        <p class="mt-3 text-xs text-zinc-500 md:mt-4">Kamil Pomykała Profolio - Copyright &copy; 2023 | All Rights Reserved</p>
+        <p class="mt-3 text-xs text-zinc-500 md:mt-4">Kamil Pomykała Profolio - Copyright &copy; 2023 - 2024 | All Rights Reserved</p>
       </div>
     </div>
   </section>
