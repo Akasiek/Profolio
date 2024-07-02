@@ -3,9 +3,9 @@ const links = [
   {
     iconPath: "/icons/contact/mail.svg",
     iconAlt: "Mail icon",
-    url: "mailto:kpomykala2002@gmail.com",
+    url: "mailto:kamil@kamilpomykala.dev",
     title: "Send me an email",
-    subtitle: "kpomykala2002@gmail.com",
+    subtitle: "kamil@kamilpomykala.dev",
     noBlank: true
   },
   {
